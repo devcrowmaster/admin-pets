@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Form from './components/Form';
+import Appointment from './components/Appointment';
 
 function App() {
 
@@ -7,12 +8,17 @@ function App() {
 
 
   const createAppointment = appointment =>{
-    setAppointments({
+    setAppointments([
       ...appointments,
       appointment
-    })
+    ])
+  }
+  const deleteAppointment = id =>{
+    const apoint = appointments.filter(appointment => appointment.id !== id);
+    setAppointments(apoint);
   }
   
+  const title = appointments.length === 0 ? 'No hay Citas' : 'Administra tus Citas';
 
   return (
     <div className="o-container">
@@ -24,8 +30,15 @@ function App() {
               createAppointment={createAppointment}
             />
           </div>
-          <div className="c-appointment">
-
+          <div className="appointment">
+            <h2 className="heading heading--secondary">{title}</h2>
+            {appointments.map(appointment =>(
+              <Appointment
+                key={appointment.id}
+                appointment={appointment}
+                deleteAppointment={deleteAppointment}
+              />
+            ))}
           </div>
         </div>
       </main>
