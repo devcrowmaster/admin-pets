@@ -1,0 +1,106 @@
+$main-font:'Staatliches', cursive;
+$primary : #A445B2;
+$secondary : #D41872;
+$tertiary : #FF0066;
+$white : white;
+$btn-primary: #33c3f0;
+
+$tablet: 'min-width:760px';
+
+html{
+  box-sizing: border-box;
+}
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+body{
+  background-image: linear-gradient(-225deg, $primary 0%, $secondary 52%, $tertiary 100%);
+  font-family: 'Raleway',sans-serif;
+  min-height: 100vh;
+}
+main{
+  padding: 3rem 0;
+}
+textarea{
+  resize: none;
+}
+.o-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.o-row{
+  @media($tablet){
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+  }
+  
+}
+.heading{
+  color: $white;
+  font-family: $main-font;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  &--primary{
+    font-size: 2rem;
+    @media($tablet){
+      font-size: 2.5rem;
+    }
+  }
+  &--secondary{
+    font-size: 1.5rem;
+    @media($tablet){
+      font-size: 2rem;
+    }
+  }
+}
+.c-form{
+  display: grid;
+  gap: .5rem;
+  &__label{
+    color: $white;
+    font-weight: 600;
+    font-size: .9rem;
+  }
+  &__input{
+    display: block;
+    border: none;
+    border-radius: .3rem;
+    width: 100%;
+    padding: .7rem 1rem;
+    // max-width: 15rem;
+    &::placeholder{
+      color: #767676;
+      font-size: .85rem;
+    }
+  }
+}
+.c-alert{
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: $main-font;
+  &--error{
+    background-color: white;
+    color: red;
+  }
+}
+.c-btn{
+  padding: .6rem 1.5rem;
+  border: none;
+  outline: none;
+  display: inline-block;
+  border-radius: .3rem;
+  font-size: .9rem;
+  font-weight: 600;
+  &--block{
+    display: block;
+  }
+  &__primary{
+    background-color: $btn-primary;
+    color: $white;
+  }
+}
